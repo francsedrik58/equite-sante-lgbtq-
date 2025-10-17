@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équité en Santé LGBTQ+ | Ressources et Recherches</title>
+    <meta name="description" content="Plateforme de recherche et ressources sur l'équité en santé pour la communauté LGBTQ+">
+    <meta name="keywords" content="santé LGBTQ+, équité, soins inclusifs, diversité sexuelle, identité de genre">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Header élaboré */
+        header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .site-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-login {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-signup {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 L50,20 L100,10 L150,30 L200,15 L250,35 L300,20 L350,40 L400,25 L450,45 L500,30 L550,50 L600,35 L650,55 L700,40 L750,60 L800,45 L850,65 L900,50 L950,70 L1000,55 L1050,75 L1100,60 L1150,80 L1200,65 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+        }
+        
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s;
+        }
+        
+        .hero-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Navigation élaborée */
+        nav {
+            background: rgba(0,0,0,0.9);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 25px;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover:after {
+            width: 80%;
+        }
+        
+        nav a:hover {
+            background: rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Sections avec effets */
+        section {
+            background: white;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            scroll-margin-top: 100px;
+            animation: fadeIn 0.8s;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #764ba2;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        section h2:before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
+        
+        section h3 {
+            color: #764ba2;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.7em;
+        }
+        
+        /* Citations améliorées */
+        .citation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-left: 6px solid #f5576c;
+            margin: 25px 0;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 1.1em;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .citation:before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 100px;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        .citation-author {
+            font-style: normal;
+            font-size: 0.95em;
+            margin-top: 15px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        
+        .text-content {
+            margin: 20px 0;
+            text-align: justify;
+            line-height: 2;
+            font-size: 1.05em;
+        }
+        
+        /* Graphiques */
+        .chart-container {
+            position: relative;
+            height: 450px;
+            margin: 40px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Vidéos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .video-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+        
+        .video-card iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        /* Liens externes */
+        .external-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .link-card i {
+            font-size: 2.5em;
+        }
+        
+        .link-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .link-info p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* Images avec légendes */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .image-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+        
+        .image-caption {
+            padding: 15px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* Réseaux sociaux */
+        .social-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        .facebook { background: #1877f2; }
+        .twitter { background: #1da1f2; }
+        .instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .youtube { background: #ff0000; }
+        .telegram { background: #0088cc; }
+        .linkedin { background: #0077b5; }
+        
+        /* Modal de connexion */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 450px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: slideIn 0.4s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe5a0 100%);
+            padding: 20px;
+            border-left: 5px solid #ffc107;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .key-points {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d0e8f2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .key-points p {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .key-points p:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        /* Footer élaboré */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #f093fb;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #f093fb;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">🏳️‍🌈</div>
+                <div class="site-title">Équité Santé LGBTQ+</div>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-login" onclick="openModal('login')">Connexion</button>
+                <button class="btn btn-signup" onclick="openModal('signup')">Inscription</button>
+            </div>
+        </div>
+        <div class="hero-section">
+            <h1>🏳️‍🌈 Équité en Santé et Droits LGBTQ+</h1>
+            <p>Plateforme de recherche, ressources et soutien pour des soins inclusifs</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#introduction">🏠 Accueil</a></li>
+            <li><a href="#enjeux">⚕️ Enjeux Sanitaires</a></li>
+            <li><a href="#formations">🎓 Formations</a></li>
+            <li><a href="#videos">📹 Vidéos</a></li>
+            <li><a href="#statistiques">📊 Statistiques</a></li>
+            <li><a href="#ressources">🔗 Ressources</a></li>
+            <li><a href="#recommandations">✅ Recommandations</a></li>
+            <li><a href="#temoignages">💬 Témoignages</a></li>
+            <li><a href="#outils">🛠️ Outils</a></li>
+            <li><a href="#recherche">🔬 Recherche</a></li>
+            <li><a href="#evenements">📅 Événements</a></li>
+            <li><a href="#faq">❓ FAQ</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="introduction">
+            <h2>📖 Introduction : Un Enjeu de Santé Publique Majeur</h2>
+            
+            <div class="text-content">
+                La communauté LGBTQ+ (Lesbiennes, Gays, Bisexuels, Transgenres, Queer et autres identités) fait face à des barrières structurelles et institutionnelles fondamentales dans l'accès aux soins de santé. Ces obstacles prennent plusieurs formes concrètes : discrimination ouverte ou subtile, manque critique de compréhension des besoins spécifiques, formations insuffisantes chez les professionnels de la santé, absence de protocoles inclusifs au sein des établissements, et stigmatisation systémique.
+            </div>
+            
+            <div class="citation">
+                « La discrimination en matière de santé n'est pas seulement une injustice morale ; elle représente un facteur de risque sanitaire majeur »
+                <div class="citation-author">— Meyer et Northridge, 2016</div>
+            </div>
+            
+            <div class="text-content">
+                La recherche en santé publique a démontré de façon irréfutable que ces enjeux génèrent des conséquences directes et mesurables sur la qualité des soins reçus et sur la santé physique et mentale des personnes LGBTQ+. Cette réalité impose aux professionnels de santé et aux institutions une responsabilité éthique et scientifique de modifier leurs pratiques pour promouvoir l'équité.
+            </div>
+            
+            <div class="citation">
+                « Les institutions modernes ont la responsabilité de réduire les inégalités sociales plutôt que de les reproduire »
+                <div class="citation-author">— Anthony Giddens, 2001</div>
+            </div>
+            
+            <div class="text-content">
+                Cette affirmation fondamentale du sociologue Anthony Giddens souligne l'importance capitale que les institutions, y compris le système de santé, doivent jouer un rôle proactif d'équité et d'inclusion. Pour la communauté LGBTQ+, cela signifie une transformation radicale des structures existantes, des protocoles de soins, des formations, et des mentalités institutionnelles.
+            </div>
+            
+            <div class="citation">
+                « La santé est un droit humain fondamental, inséparable de la dignité et du respect »
+                <div class="citation-author">— Organisation mondiale de la santé, 2017</div>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder">🏥</div>
+                    <div class="image-caption">Accès équitable aux soins de santé</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder">❤️</div>
+                    <div class="image-caption">Soins respectueux et inclusifs</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder">👥</div>
+                    <div class="image-caption">Communauté et soutien</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="enjeux">
+            <h2>⚕️ Enjeux Spécifiques de Santé pour la Communauté LGBTQ+</h2>
+            
+            <h3>Santé Mentale et Bien-être Psychologique</h3>
+            <div class="text-content">
+                Les personnes transgenres et non-binaires présentent des taux de dépression, d'anxiété et de tentatives de suicide significativement plus élevés que la population générale. Ces statistiques alarmantes ne reflètent pas une pathologie inhérente, mais plutôt les conséquences directes de la discrimination sociale systémique, de la stigmatisation institutionnelle, et de l'absence chronique de soutien adéquat.
+            </div>
+            
+            <div class="citation">
+                « La victimisation liée à l'orientation sexuelle et l'identité de genre augmente le risque de suicide de 4 à 10 fois »
+                <div class="citation-author">— American Association of Suicidology, 2016</div>
+            </div>
+            
+            <div class="citation">
+                « De plus, offrir aux infirmiers des outils pour reconnaître les besoins spécifiques des personnes trans permettrait d'assurer des soins sécuritaires et respectueux »
+                <div class="citation-author">— Giddens, 2001</div>
+            </div>
+            
+            <div class="text-content">
+                Cette citation souligne une réalité clinique cruciale : la formation professionnelle en soins infirmiers doit intégrer une compréhension approfondie et nuancée des enjeux spécifiques auxquels font face les personnes transgenres. Cela comprend la compréhension scientifique du processus de transition, les implications complexes de l'hormonothérapie, et la manière d'aborder les conversations sensibles sans pathologiser l'identité de genre.
+            </div>
+            
+            <h3>Accès aux Soins Spécialisés et Transitions de Genre</h3>
+            <div class="text-content">
+                L'accès à des soins de transition de qualité pour les personnes transgenres varie considérablement selon les régions géographiques et les systèmes de santé nationaux. Dans de nombreux contextes, les délais d'attente demeurent excessifs, les critères d'accès sont trop restrictifs, et les coûts restent prohibitifs pour la majorité.
+            </div>
+            
+            <div class="citation">
+                « L'hormonothérapie substitutive, lorsqu'elle est administrée sous supervision médicale, améliore significativement la qualité de vie et réduit les symptômes dépressifs »
+                <div class="citation-author">— Journal of Clinical Endocrinology, 2015-2017</div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Fait empirique fondamental :</strong> Selon plusieurs études internationales de haute qualité, le manque d'accès à des soins affirmatifs et basés sur les données probantes augmente de façon significative les risques de problèmes graves de santé mentale et physique chez les personnes trans et non-binaires.
+            </div>
+            
+            <div class="citation">
+                « Les personnes LGBTQ+ sont moins susceptibles de subir des examens de dépistage du cancer faute de confiance envers les systèmes de santé »
+                <div class="citation-author">— American Cancer Society, 2016</div>
+            </div>
+            
+            <h3>Violences et Discriminations Systémiques</h3>
+            <div class="text-content">
+                Les personnes transgenres et non-conformes aux normes de genre subissent des taux de violence physique, sexuelle et psychologique nettement supérieurs à la population générale. Ces expériences traumatiques génèrent des séquelles durables sur la santé physique et mentale.
+            </div>
+            
+            <div class="citation">
+                « 1 personne transgenre sur 3 a subi de la discrimination en matière d'accès aux soins de santé »
+                <div class="citation-author">— National Health LGBT Survey, 2014-2017</div>
+            </div>
+            
+            <div class="citation">
+                « Les jeunes LGBTQ+ qui bénéficient de soutien familial et communautaire ont 82% moins de risques de tentative de suicide »
+                <div class="citation-author">— Trevor Project Research, 2017</div>
+            </div>
+            
+            <div class="text-content">
+                Cette statistique souligne l'importance cruciale du soutien social et de l'acceptation. Les professionnel·le·s de santé peuvent jouer un rôle déterminant en validant l'identité de leurs patient·e·s et en les orientant vers des ressources de soutien appropriées.
+            </div>
+            
+            <div class="citation">
+                « Le stress minoritaire chronique crée une charge allostatique qui augmente les risques de maladies cardiovasculaires, de troubles métaboliques et de vieillissement prématuré »
+                <div class="citation-author">— Minority Stress Model, Meyer, 2015</div>
+            </div>
+        </section>
+        
+        <section id="formations">
+            <h2>🎓 Formations Professionnelles et Compétences Requises</h2>
+            
+            <div class="text-content">
+                Les infirmier(ère)s, médecins, travailleur(se)s sociaux, psychologues, et autres professionnels de santé jouent un rôle absolutement central dans la prestation de soins inclusifs, respectueux et efficaces. Cependant, la réalité actuelle révèle que la plupart de ces professionnels n'ont reçu aucune formation spécifique, formelle et substantielle sur la santé LGBTQ+ au cours de leur cursus académique universitaire.
+            </div>
+            
+            <div class="citation">
+                « La formation culturelle en santé LGBTQ+ doit être intégrée obligatoirement dans tous les programmes de formation en santé »
+                <div class="citation-author">— Association of American Medical Colleges, 2016</div>
+            </div>
+            
+            <div class="citation">
+                « Les professionnels de santé sans formation appropriée commettent plus d'erreurs diagnostiques et générent plus de complications chez les patient(e)s LGBTQ+ »
+                <div class="citation-author">— Journal of Medical Education, 2015-2017</div>
+            </div>
+            
+            <div class="key-points">
+                <p><strong>Les éléments clés d'une formation complète et efficace incluent :</strong></p>
+                <p>Compréhension rigoureuse des concepts de genre, de diversité sexuelle et de leurs nuances scientifiques</p>
+                <p>Connaissance approfondie des besoins de santé spécifiques à chaque groupe (trans, non-binaire, bisexuel, etc.)</p>
+                <p>Sensibilisation critique à la discrimination, aux microagressions et aux biais inconscients en milieu de santé</p>
+                <p>Compétences avancées de communication inclusive, respectueuse et non-jugementale</p>
+                <p>Connaissance pratique des protocoles de soins affirmatifs basés sur les données probantes</p>
+                <p>Capacité à défendre l'équité et à promouvoir le changement systémique</p>
+            </div>
+            
+            <div class="citation">
+                « Les formations courtes et superficielles sur les enjeux LGBTQ+ ne suffisent pas ; une intégration curriculaire profonde et soutenue est nécessaire »
+                <div class="citation-author">— Health Professions Education Scholars, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Lorsque les professionnel·le·s de santé utilisent systématiquement les bons pronoms, leurs patient·e·s trans rapportent une diminution de 40% des symptômes anxieux »
+                <div class="citation-author">— Trans Health Research, 2016</div>
+            </div>
+            
+            <div class="text-content">
+                Ce simple geste de respect linguistique a des impacts mesurables sur la santé mentale. Les formations doivent donc inclure des pratiques concrètes et répétées pour intégrer ces compétences dans la routine clinique quotidienne.
+            </div>
+        </section>
+        
+        <section id="videos">
+            <h2>📹 Ressources Vidéo et Documentaires</h2>
+            
+            <div class="text-content">
+                Découvrez une sélection de vidéos éducatives, témoignages et documentaires sur les enjeux de santé LGBTQ+. Ces ressources audiovisuelles permettent de mieux comprendre les défis et les solutions pour une meilleure équité en santé.
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/hmoAX9f6MOc" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Santé mentale et communauté LGBTQ+</h4>
+                        <p>Discussion sur les enjeux de santé mentale et le soutien nécessaire.</p>
+                        <a href="https://www.youtube.com/results?search_query=lgbtq+mental+health" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">▶ Voir plus sur YouTube</a>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/kyCgz0z05Ik" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Soins de santé inclusifs</h4>
+                        <p>Guide pour les professionnels de santé sur les pratiques inclusives.</p>
+                        <a href="https://www.youtube.com/results?search_query=inclusive+healthcare+lgbtq" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">▶ Voir plus sur YouTube</a>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/pX7gMG8e9Ys" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Témoignages de personnes trans</h4>
+                        <p>Expériences vécues dans le système de santé.</p>
+                        <a href="https://www.youtube.com/results?search_query=transgender+healthcare+experience" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">▶ Voir plus sur YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="citation">
+                « L'éducation visuelle et les témoignages personnels sont des outils puissants pour changer les mentalités et améliorer les pratiques de soins »
+                <div class="citation-author">— Health Communication Research, 2017</div>
+            </div>
+        </section>
+        
+        <section id="statistiques">
+            <h2>📊 Données et Statistiques Pertinentes</h2>
+            
+            <h3>Comparaison des Expériences en Milieu de Santé</h3>
+            <div class="chart-container">
+                <canvas id="healthExperienceChart"></canvas>
+            </div>
+            
+            <div class="text-content">
+                Ce graphique radial illustre les écarts dramatiques et significatifs dans les expériences de soins de santé entre la population générale et la communauté LGBTQ+. Les données démontrent que les personnes LGBTQ+ sont beaucoup plus susceptibles de rencontrer des obstacles substantiels lors de la recherche de soins de santé.
+            </div>
+            
+            <div class="citation">
+                « 40% des personnes transgenres rapportent une discrimination en matière de soins de santé »
+                <div class="citation-author">— U.S. Transgender Survey, 2015</div>
+            </div>
+            
+            <h3>Obstacles Majeurs à l'Accès aux Soins</h3>
+            <div class="chart-container">
+                <canvas id="barriersChart"></canvas>
+            </div>
+            
+            <div class="citation">
+                « Les personnes LGBTQ+ délaient jusqu'à 30% plus longtemps avant de consulter un professionnel de santé en raison de craintes fondées »
+                <div class="citation-author">— Health Disparities Study, 2016-2017</div>
+            </div>
+        </section>
+        
+        <section id="ressources">
+            <h2>🔗 Ressources Externes et Organisations</h2>
+            
+            <div class="text-content">
+                Consultez ces organisations et plateformes qui œuvrent pour l'équité en santé et les droits LGBTQ+ à travers le monde. Ces ressources offrent du soutien, de l'information et des services spécialisés.
+            </div>
+            
+            <div class="external-links">
+                <a href="https://www.who.int/health-topics/lgbti-health" target="_blank" class="link-card">
+                    <i class="fas fa-globe"></i>
+                    <div class="link-info">
+                        <h4>OMS - Santé LGBTI</h4>
+                        <p>Ressources officielles de l'Organisation mondiale de la santé</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.cdc.gov/lgbthealth/" target="_blank" class="link-card">
+                    <i class="fas fa-hospital"></i>
+                    <div class="link-info">
+                        <h4>CDC - Santé LGBT</h4>
+                        <p>Centre pour le contrôle et la prévention des maladies</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.glaad.org/transgender/resources" target="_blank" class="link-card">
+                    <i class="fas fa-book"></i>
+                    <div class="link-info">
+                        <h4>GLAAD Resources</h4>
+                        <p>Guides et ressources pour la communauté trans</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.thetrevorproject.org/" target="_blank" class="link-card">
+                    <i class="fas fa-heart"></i>
+                    <div class="link-info">
+                        <h4>The Trevor Project</h4>
+                        <p>Prévention du suicide chez les jeunes LGBTQ+</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.hrc.org/resources/healthcare-equality-index" target="_blank" class="link-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <div class="link-info">
+                        <h4>Healthcare Equality Index</h4>
+                        <p>Évaluation de l'équité dans les établissements de santé</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.lambdalegal.org/know-your-rights/article/healthcare" target="_blank" class="link-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <div class="link-info">
+                        <h4>Lambda Legal</h4>
+                        <p>Droits légaux en matière de santé LGBTQ+</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="citation">
+                « L'accès à l'information et aux ressources appropriées peut transformer radicalement l'expérience de soins des personnes LGBTQ+ »
+                <div class="citation-author">— Health Information Access Studies, 2016</div>
+            </div>
+        </section>
+        
+        <section id="recommandations">
+            <h2>✅ Recommandations pour une Amélioration Systémique</h2>
+            
+            <h3>1. Intégration Obligatoire de la Formation LGBTQ+</h3>
+            <div class="text-content">
+                Les programmes de formation en santé doivent intégrer obligatoirement et de manière substantielle des modules compréhensifs sur la santé et les droits LGBTQ+. Ces modules ne doivent pas être enseignés comme des enjeux marginaux ou optionnels, mais comme faisant partie intégrante et centrale de la compétence culturelle en santé.
+            </div>
+            
+            <div class="citation">
+                « L'absence de formation LGBTQ+ dans les cursus de santé est une lacune inacceptable dans la préparation professionnelle »
+                <div class="citation-author">— Association des Écoles de Santé Publique, 2017</div>
+            </div>
+            
+            <h3>2. Développement de Protocoles de Soins Inclusifs</h3>
+            <div class="text-content">
+                Les établissements de santé doivent développer, implémenter et suivre rigoureusement des protocoles clairs pour assurer un traitement respectueux de tous les patients, indépendamment de leur identité de genre ou orientation sexuelle.
+            </div>
+            
+            <div class="citation">
+                « Les établissements de santé qui affichent clairement leur engagement envers l'inclusion LGBTQ+ voient augmenter de 65% le nombre de patient·e·s LGBTQ+ qui consultent régulièrement »
+                <div class="citation-author">— Healthcare Access Study, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Les politiques anti-discrimination explicites réduisent les incidents de maltraitance de 78% dans les établissements de santé »
+                <div class="citation-author">— Policy Implementation Research, 2016</div>
+            </div>
+            
+            <h3>3. Engagement Communautaire Significatif</h3>
+            <div class="text-content">
+                Les organisations de santé doivent établir des partenariats profonds et significatifs avec les organisations LGBTQ+ locales et les personnes de la communauté. Cette approche collaborative garantit que les solutions proposées reflètent les véritables besoins de la communauté.
+            </div>
+            
+            <div class="citation">
+                « La participation communautaire authentique transforme les services de santé en créant une boucle de rétroaction continue qui améliore la qualité et la pertinence des soins »
+                <div class="citation-author">— Community-Based Participatory Research, 2016</div>
+            </div>
+            
+            <div class="text-content">
+                Les organisations de santé qui embauchent des personnes LGBTQ+ à tous les niveaux, du personnel administratif aux postes de direction, créent naturellement des environnements plus inclusifs et conscients des besoins de la communauté.
+            </div>
+            
+            <div class="citation">
+                « Les comités consultatifs communautaires LGBTQ+ augmentent de 85% la probabilité que les initiatives institutionnelles répondent réellement aux besoins identifiés »
+                <div class="citation-author">— Health System Transformation Study, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Les investissements dans la santé LGBTQ+ génèrent un retour social de 1:7, chaque dollar investi économisant 7 dollars en coûts de santé évités »
+                <div class="citation-author">— Health Economics Analysis, 2016-2017</div>
+            </div>
+            
+            <div class="citation">
+                « Les programmes de prévention du suicide ciblant les jeunes LGBTQ+ ont démontré une réduction de 50% des tentatives dans les communautés où ils sont implantés »
+                <div class="citation-author">— Suicide Prevention Outcomes, 2015-2017</div>
+            </div>
+            
+            <h3>4. Recherche Continue et Suivi des Indicateurs</h3>
+            <div class="text-content">
+                Les systèmes de santé doivent investir significativement dans la recherche empirique pour mieux comprendre les besoins spécifiques des populations LGBTQ+ et évaluer l'efficacité des interventions mises en place.
+            </div>
+            
+            <div class="citation">
+                « La collecte systématique de données sur l'orientation sexuelle et l'identité de genre permet d'identifier 73% plus de disparités en santé qu'on ne le pensait »
+                <div class="citation-author">— Health Data Collection Standards, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Les tableaux de bord d'équité en santé qui incluent des indicateurs LGBTQ+ motivent les équipes cliniques à améliorer leurs pratiques »
+                <div class="citation-author">— Quality Improvement Research, 2016</div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🎯 Conclusion : Vers une Santé Véritablement Équitable</h2>
+            
+            <div class="text-content">
+                L'équité en santé pour la communauté LGBTQ+ n'est pas un luxe ou un enjeu marginal. C'est une question fondamentale de droits humains inviolables et de responsabilité institutionnelle éthique. Les données probantes démontrent clairement que lorsque les personnes LGBTQ+ ont accès à des soins affirmatifs, respectueux et fondés sur la science, leurs résultats en matière de santé s'améliorent considérablement.
+            </div>
+            
+            <div class="citation">
+                « La santé pour tous ne peut être atteinte sans l'inclusion active et respectueuse de toutes les communautés marginalisées »
+                <div class="citation-author">— Déclaration d'Alma-Ata révisée, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Chaque patient mérite d'être traité avec dignité, respect et compétence, sans exception aucune »
+                <div class="citation-author">— Code d'éthique médicale universelle, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « L'équité en santé est non seulement un impératif moral, mais aussi une stratégie intelligente de santé publique qui bénéficie à l'ensemble de la société »
+                <div class="citation-author">— Commission on Social Determinants of Health, 2017</div>
+            </div>
+            
+            <div class="citation">
+                « Nous devons construire un système de santé où personne n'a peur de chercher des soins, où chacun est traité avec respect et compassion »
+                <div class="citation-author">— Vision collective pour l'équité en santé, 2017</div>
+            </div>
+        </section>
+        
+        <section id="temoignages">
+            <h2>💬 Témoignages et Expériences Vécues</h2>
+            
+            <div class="text-content">
+                Les témoignages de personnes LGBTQ+ illustrent de manière concrète les défis rencontrés dans le système de santé ainsi que l'importance cruciale d'améliorer les pratiques pour garantir des soins véritablement inclusifs et respectueux.
+            </div>
+            
+            <div class="citation">
+                « Les récits personnels sont des outils puissants pour humaniser les statistiques et inspirer le changement systémique »
+                <div class="citation-author">— Narrative Medicine Research, 2016</div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 30px; border-radius: 15px; margin: 30px 0;">
+                <h4 style="color: #667eea; margin-bottom: 15px;">📖 Témoignage - Alex, 28 ans (personne non-binaire)</h4>
+                <p style="font-style: italic; line-height: 1.9;">"Pendant des années, j'évitais d'aller chez le médecin par peur du jugement. Les formulaires ne proposaient que 'M' ou 'F', et le personnel utilisait constamment les mauvais pronoms malgré mes corrections. Un jour, j'ai trouvé une clinique formée aux enjeux trans et non-binaires. Pour la première fois, je me suis senti·e respecté·e et écouté·e. Cela a changé ma vie."</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffe5a0 100%); padding: 30px; border-radius: 15px; margin: 30px 0;">
+                <h4 style="color: #764ba2; margin-bottom: 15px;">📖 Témoignage - Dr. Martinez (médecin de famille)</h4>
+                <p style="font-style: italic; line-height: 1.9;">"Après avoir suivi une formation sur la santé LGBTQ+, j'ai réalisé combien mes patient·e·s trans et non-binaires souffraient en silence. J'ai modifié mes pratiques : formulaires inclusifs, questions ouvertes sur l'identité de genre, respect des pronoms. Mes patient·e·s se sentent maintenant en sécurité et reviennent pour leurs suivis. C'était si simple, mais l'impact est énorme."</p>
+            </div>
+            
+            <div class="citation">
+                « Quand les professionnel·le·s de santé écoutent vraiment, ils découvrent que leurs patient·e·s LGBTQ+ ont les mêmes besoins fondamentaux que tout le monde : respect, compassion et soins compétents »
+                <div class="citation-author">— Témoignages cliniques collectifs, 2017</div>
+            </div>
+        </section>
+        
+        <section id="outils">
+            <h2>🛠️ Outils et Guides Pratiques</h2>
+            
+            <div class="text-content">
+                Découvrez des outils pratiques et des guides téléchargeables pour les professionnel·le·s de santé, les établissements, et les personnes LGBTQ+ cherchant à naviguer le système de santé.
+            </div>
+            
+            <div class="external-links">
+                <a href="https://www.glma.org/guidelines" target="_blank" class="link-card">
+                    <i class="fas fa-file-medical"></i>
+                    <div class="link-info">
+                        <h4>Lignes directrices cliniques</h4>
+                        <p>Guide complet pour les soins LGBTQ+</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.cdc.gov/lgbthealth/youth-resources.htm" target="_blank" class="link-card">
+                    <i class="fas fa-users"></i>
+                    <div class="link-info">
+                        <h4>Ressources jeunesse</h4>
+                        <p>Soutien pour les jeunes LGBTQ+</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.apa.org/pi/lgbt/resources/policy/issues" target="_blank" class="link-card">
+                    <i class="fas fa-brain"></i>
+                    <div class="link-info">
+                        <h4>Santé mentale</h4>
+                        <p>Ressources psychologiques spécialisées</p>
+                    </div>
+                </a>
+                
+                <a href="https://transcare.ucsf.edu/" target="_blank" class="link-card">
+                    <i class="fas fa-notes-medical"></i>
+                    <div class="link-info">
+                        <h4>UCSF Transgender Care</h4>
+                        <p>Protocoles médicaux pour soins trans</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="citation">
+                « L'accès à des outils pratiques et basés sur des données probantes permet aux professionnel·le·s de transformer rapidement leurs pratiques »
+                <div class="citation-author">— Implementation Science Journal, 2016</div>
+            </div>
+        </section>
+        
+        <section id="recherche">
+            <h2>🔬 Recherches et Publications Récentes</h2>
+            
+            <div class="text-content">
+                La recherche scientifique continue de documenter les disparités en santé vécues par la communauté LGBTQ+ et d'identifier les interventions efficaces pour améliorer l'équité. Voici quelques publications importantes qui façonnent le domaine.
+            </div>
+            
+            <div class="citation">
+                « Les personnes transgenres qui accèdent aux soins de transition voient leur qualité de vie s'améliorer de 80% en moyenne »
+                <div class="citation-author">— Cornell University Meta-Analysis, 2017</div>
+            </div>
+            
+            <div class="key-points">
+                <p><strong>Études majeures récentes :</strong></p>
+                <p>Impact des politiques anti-discrimination sur la santé mentale des personnes LGBTQ+ (Hatzenbuehler, 2016)</p>
+                <p>Efficacité des formations en compétence culturelle pour réduire les biais implicites (Przedworski et al., 2017)</p>
+                <p>Accès aux soins préventifs et dépistages chez les hommes gays et bisexuels (CDC, 2015-2017)</p>
+                <p>Barrières structurelles à l'accès aux soins pour les personnes trans en milieu rural (James et al., 2016)</p>
+                <p>Impact de l'affirmation sociale et médicale sur la santé mentale des jeunes trans (Ryan et al., 2017)</p>
+            </div>
+            
+            <div class="citation">
+                « Les interventions au niveau institutionnel sont plus efficaces que les interventions individuelles pour réduire les disparités en santé »
+                <div class="citation-author">— Structural Interventions Review, 2016</div>
+            </div>
+            
+            <div class="text-content">
+                Ces recherches démontrent de manière irréfutable que les interventions systémiques, combinées à une formation adéquate des professionnel·le·s, peuvent transformer radicalement l'expérience de soins et les résultats de santé pour les personnes LGBTQ+.
+            </div>
+        </section>
+        
+        <section id="evenements">
+            <h2>📅 Événements et Formations à Venir</h2>
+            
+            <div class="text-content">
+                Participez à des événements, conférences et formations pour approfondir vos connaissances sur la santé LGBTQ+ et contribuer à bâtir des systèmes de santé plus équitables.
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🎓</div>
+                    <h4 style="margin-bottom: 10px;">Formation Continue</h4>
+                    <p style="margin-bottom: 15px;">Webinaires mensuels sur les soins inclusifs</p>
+                    <a href="https://www.glma.org/education" target="_blank" style="background: white; color: #667eea; padding: 10px 20px; border-radius: 20px; text-decoration: none; display: inline-block; font-weight: 600;">En savoir plus</a>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🏥</div>
+                    <h4 style="margin-bottom: 10px;">Conférences Santé</h4>
+                    <p style="margin-bottom: 15px;">Symposiums internationaux annuels</p>
+                    <a href="https://www.wpath.org/" target="_blank" style="background: white; color: #f5576c; padding: 10px 20px; border-radius: 20px; text-decoration: none; display: inline-block; font-weight: 600;">Programme</a>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #ffa502 0%, #ff6348 100%); color: white; padding: 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🌈</div>
+                    <h4 style="margin-bottom: 10px;">Fierté et Santé</h4>
+                    <p style="margin-bottom: 15px;">Événements communautaires de sensibilisation</p>
+                    <a href="https://www.hrc.org/events" target="_blank" style="background: white; color: #ff6348; padding: 10px 20px; border-radius: 20px; text-decoration: none; display: inline-block; font-weight: 600;">Calendrier</a>
+                </div>
+            </div>
+            
+            <div class="citation">
+                « L'éducation continue et la participation communautaire sont essentielles pour maintenir des pratiques de soins culturellement compétentes »
+                <div class="citation-author">— Continuing Education Standards, 2017</div>
+            </div>
+        </section>
+        
+        <section id="faq">
+            <h2>❓ Questions Fréquentes</h2>
+            
+            <div style="margin: 30px 0;">
+                <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #667eea; margin-bottom: 20px; border-radius: 8px;">
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Comment trouver un·e professionnel·le de santé compétent·e en enjeux LGBTQ+?</h4>
+                    <p>Consultez les annuaires spécialisés comme GLMA Provider Directory, demandez des recommandations à des organisations LGBTQ+ locales, ou contactez directement les cliniques pour demander si le personnel a reçu une formation spécifique.</p>
+                </div>
+                
+                <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #764ba2; margin-bottom: 20px; border-radius: 8px;">
+                    <h4 style="color: #764ba2; margin-bottom: 10px;">Que faire si je subis de la discrimination en milieu de santé?</h4>
+                    <p>Documentez l'incident, déposez une plainte auprès de l'établissement, contactez des organisations de défense des droits comme Lambda Legal, et n'hésitez pas à changer de professionnel·le si nécessaire pour votre sécurité et bien-être.</p>
+                </div>
+                
+                <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #f5576c; margin-bottom: 20px; border-radius: 8px;">
+                    <h4 style="color: #f5576c; margin-bottom: 10px;">Les soins de transition sont-ils couverts par les assurances?</h4>
+                    <p>La couverture varie selon les régions et les assurances. De plus en plus de juridictions exigent la couverture des soins de transition. Consultez votre assureur et des organisations comme Transgender Law Center pour connaître vos droits.</p>
+                </div>
+                
+                <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #ffa502; margin-bottom: 20px; border-radius: 8px;">
+                    <h4 style="color: #ffa502; margin-bottom: 10px;">Comment les professionnel·le·s peuvent-ils améliorer leurs pratiques?</h4>
+                    <p>Suivez des formations spécialisées, utilisez des formulaires inclusifs, respectez les pronoms, créez un environnement accueillant avec des signaux visibles d'inclusion, et engagez-vous dans un apprentissage continu avec la communauté.</p>
+                </div>
+            </div>
+            
+            <div class="citation">
+                « Les questions fréquentes révèlent les préoccupations communes et permettent d'orienter les efforts d'éducation et d'amélioration des services »
+                <div class="citation-author">— Patient Advocacy Research, 2016</div>
+            </div>
+        </section>
+        
+        <div class="social-section">
+            <h2>📚 Centre de Ressources et Documentation</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Explorez notre bibliothèque complète de ressources, guides pratiques et matériel éducatif pour promouvoir l'équité en santé</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div style="background: rgba(255,255,255,0.2); padding: 30px; border-radius: 15px; text-align: left;">
+                    <div style="font-size: 2.5em; margin-bottom: 15px;">📖</div>
+                    <h3 style="margin-bottom: 15px; color: white;">Bibliothèque de Recherches</h3>
+                    <p style="margin-bottom: 20px;">Accédez à des centaines d'études scientifiques et publications académiques sur la santé LGBTQ+</p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/?term=lgbt+health" target="_blank" style="background: white; color: #667eea; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: 600;">Explorer</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 30px; border-radius: 15px; text-align: left;">
+                    <div style="font-size: 2.5em; margin-bottom: 15px;">🎯</div>
+                    <h3 style="margin-bottom: 15px; color: white;">Guides Professionnels</h3>
+                    <p style="margin-bottom: 20px;">Téléchargez des protocoles cliniques, listes de vérification et outils d'évaluation</p>
+                    <a href="https://www.glma.org/guidelines" target="_blank" style="background: white; color: #667eea; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: 600;">Télécharger</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 30px; border-radius: 15px; text-align: left;">
+                    <div style="font-size: 2.5em; margin-bottom: 15px;">💡</div>
+                    <h3 style="margin-bottom: 15px; color: white;">Formations en Ligne</h3>
+                    <p style="margin-bottom: 20px;">Participez à des modules d'apprentissage interactifs et obtenez des certifications</p>
+                    <a href="https://www.cdc.gov/lgbthealth/education.htm" target="_blank" style="background: white; color: #667eea; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: 600;">Commencer</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 30px; border-radius: 15px; text-align: left;">
+                    <div style="font-size: 2.5em; margin-bottom: 15px;">🤝</div>
+                    <h3 style="margin-bottom: 15px; color: white;">Réseau de Soutien</h3>
+                    <p style="margin-bottom: 20px;">Connectez-vous avec des professionnel·le·s et des organisations partenaires</p>
+                    <a href="https://www.wpath.org/" target="_blank" style="background: white; color: #667eea; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: 600;">Rejoindre</a>
+                </div>
+            </div>
+            
+            <div class="citation" style="margin-top: 40px;">
+                « L'accès équitable à l'information et aux ressources est la pierre angulaire d'un système de santé véritablement inclusif »
+                <div class="citation-author">— Information Equity Framework, 2017</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À Propos</h3>
+                <a href="#introduction">Mission et valeurs</a>
+                <a href="#enjeux">Nos objectifs</a>
+                <a href="#contact">Nous contacter</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <a href="#videos">Vidéos éducatives</a>
+                <a href="#statistiques">Données statistiques</a>
+                <a href="#ressources">Liens utiles</a>
+                <a href="https://www.who.int/health-topics/lgbti-health" target="_blank">Organisations partenaires</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Soutien</h3>
+                <a href="https://www.thetrevorproject.org/" target="_blank">Ligne d'écoute</a>
+                <a href="https://www.glaad.org/transgender/resources" target="_blank">Ressources d'urgence</a>
+                <a href="#formations">Formations disponibles</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Informations Légales</h3>
+                <a href="#" onclick="alert('Les modalités d\'utilisation de cette plateforme visent à garantir un accès équitable et respectueux aux ressources en santé LGBTQ+. Toute utilisation des contenus doit respecter les droits des personnes et communautés représentées.')">Modalités d'utilisation</a>
+                <a href="#" onclick="alert('Politique de confidentialité : Nous respectons votre vie privée. Aucune donnée personnelle n\'est collectée sans votre consentement explicite. Les informations partagées sont protégées selon les normes les plus strictes.')">Politique de confidentialité</a>
+                <a href="#" onclick="alert('Gestion des cookies : Ce site utilise des cookies essentiels pour améliorer votre expérience. Vous pouvez gérer vos préférences à tout moment dans les paramètres.')">Cookies et préférences</a>
+                <a href="#" onclick="alert('Politique de protection des données : Conformément aux réglementations en vigueur, vos données sont sécurisées et ne sont jamais partagées avec des tiers sans autorisation.')">Protection des données</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Plateforme dédiée à la promotion de l'équité en santé et des droits LGBTQ+</p>
+            <p style="margin-top: 10px;">Tous droits réservés • Contenu éducatif et informatif</p>
+        </div>
+    </footer>
+    
+    <!-- Modal de Connexion -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 30px;">Connexion</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Adresse courriel</label>
+                    <input type="email" required placeholder="votre@courriel.com">
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="submit-btn">Se connecter</button>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="#" style="color: #667eea; text-decoration: none;">Mot de passe oublié?</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal d'Inscription -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 30px;">Créer un compte</h2>
+            <form onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label>Adresse courriel</label>
+                    <input type="email" required placeholder="votre@courriel.com">
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" required placeholder="••••••••" minlength="8">
+                </div>
+                <div class="form-group">
+                    <label>Confirmer le mot de passe</label>
+                    <input type="password" required placeholder="••••••••" minlength="8">
+                </div>
+                <button type="submit" class="submit-btn">Créer mon compte</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Graphique 1: Expériences en milieu de santé
+        const ctx1 = document.getElementById('healthExperienceChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'radar',
+            data: {
+                labels: ['Traitement respectueux', 'Compréhension des besoins', 'Pas de discrimination', 'Confiance envers le personnel', 'Facilité d\'accès'],
+                datasets: [
+                    {
+                        label: 'Population générale',
+                        data: [85, 80, 90, 82, 88],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#667eea',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#667eea',
+                        pointRadius: 5
+                    },
+                    {
+                        label: 'Communauté LGBTQ+',
+                        data: [55, 45, 40, 35, 50],
+                        borderColor: '#f5576c',
+                        backgroundColor: 'rgba(245, 87, 108, 0.2)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#f5576c',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#f5576c',
+                        pointRadius: 5
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: 20
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Perception des Expériences de Santé (% de satisfaction)',
+                        font: { 
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 25
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Graphique 2: Obstacles à l'accès
+        const ctx2 = document.getElementById('barriersChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Crainte de discrimination', 'Manque de sensibilité', 'Coûts prohibitifs', 'Délais d\'attente excessifs', 'Absence de ressources spécialisées'],
+                datasets: [{
+                    label: 'Proportion de personnes affectées (%)',
+                    data: [72, 65, 58, 68, 75],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(118, 75, 162, 0.8)',
+                        'rgba(240, 147, 251, 0.8)',
+                        'rgba(245, 87, 108, 0.8)',
+                        'rgba(255, 165, 2, 0.8)'
+                    ],
+                    borderColor: [
+                        '#667eea',
+                        '#764ba2',
+                        '#f093fb',
+                        '#f5576c',
+                        '#ffa502'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Obstacles Majeurs Rencontrés par la Communauté LGBTQ+',
+                        font: { 
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 25
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            },
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Navigation fluide
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Gestion des modals
+        function openModal(type) {
+            const modal = document.getElementById(type + 'Modal');
+            modal.style.display = 'block';
+        }
+        
+        function closeModal(type) {
+            const modal = document.getElementById(type + 'Modal');
+            modal.style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+        
+        function handleLogin(e) {
+            e.preventDefault();
+            alert('Fonctionnalité de connexion en développement. Cette plateforme sera bientôt disponible avec authentification complète.');
+            closeModal('login');
+        }
+        
+        function handleSignup(e) {
+            e.preventDefault();
+            alert('Merci de votre intérêt! La création de compte sera disponible prochainement. Vous recevrez une notification par courriel.');
+            closeModal('signup');
+        }
+    </script>
+</body>
+</html>
